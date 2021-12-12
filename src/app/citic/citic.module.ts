@@ -19,7 +19,8 @@ import { FormulariologingComponent } from './components/formulariologing/formula
   ],
   exports: [
     CabeceraComponent,
-    FooterComponent
+    FooterComponent,
+    FormulariologingComponent
   ]
 })
 export class CiticModule { }

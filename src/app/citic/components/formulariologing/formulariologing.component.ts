@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulariologing.component.scss']
 })
 export class FormulariologingComponent implements OnInit {
-
-  constructor() { }
+  public logo: string;
+  constructor() {
+    this.logo="./assets/logo.png";
+  }
 
   ngOnInit(): void {
   }
