@@ -1,5 +1,5 @@
 .cabecera {
-  background-color: $verde !important;
+  background-color: $naranja!important;
   @for $i from 1 through 6 {
     h#{$i} {
         color: $rojo;
@@ -10,11 +10,22 @@
   span{
     color: $blanco;
   }
-  background-color: $verde !important;
+  background-color: $naranja!important;
 }
 .formulario{
-  background-color: $naranja !important;
+  background-color: $verde !important;
+  input[type=submit]{
+    background-color: $azul;
+    color: black;
+    :hover{
+      background-color: $azul_encendido;
+    }
+  }
 }
 .nav {
   background-color: $amarillo !important;
 }
+.info {
+  background-color: $blanco !important;
+}
+
