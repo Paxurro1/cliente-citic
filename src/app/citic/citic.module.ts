@@ -5,13 +5,15 @@ import { CiticRoutingModule } from './citic-routing.module';
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormulariologingComponent } from './components/formulariologing/formulariologing.component';
+import { FormularioregistroComponent } from './components/formularioregistro/formularioregistro.component';
 
 
 @NgModule({
   declarations: [
     CabeceraComponent,
     FooterComponent,
-    FormulariologingComponent
+    FormulariologingComponent,
+    FormularioregistroComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,11 @@ import { FormulariologingComponent } from './components/formulariologing/formula
   exports: [
     CabeceraComponent,
     FooterComponent,
+<<<<<<< HEAD
     FormulariologingComponent
+=======
+    FormularioregistroComponent
+>>>>>>> formulario-registro
   ]
 })
 export class CiticModule { }
