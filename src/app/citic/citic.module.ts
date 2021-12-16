@@ -22,11 +22,8 @@ import { FormularioregistroComponent } from './components/formularioregistro/for
   exports: [
     CabeceraComponent,
     FooterComponent,
-<<<<<<< HEAD
-    FormulariologingComponent
-=======
+    FormulariologingComponent,
     FormularioregistroComponent
->>>>>>> formulario-registro
   ]
 })
 export class CiticModule { }

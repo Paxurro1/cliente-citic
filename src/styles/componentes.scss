@@ -1,34 +1,35 @@
 .cabecera {
-  background-color: $naranja!important;
+  background-color: $naranja !important;
   @for $i from 1 through 6 {
     h#{$i} {
-        color: $rojo;
+      color: $rojo !important;
+      font-family: 'Montserrat';
     }
-}
+  }
 }
 .pie {
-  span{
-    color: $blanco;
+  span {
+    color: $blanco !important;
   }
-  background-color: $naranja!important;
+  background-color: $naranja !important;
+  font-family: 'Montserrat';
 }
-.formulario{
+.formulario {
+  font-family: 'Roboto';
   background-color: $verde !important;
-  input[type=submit]{
-    background-color: $azul;
-    color: black;
-    :hover{
-      background-color: $azul_encendido;
+  input[type="submit"] {
+    background-color: $azul !important;
+    color: black !important;
+    :hover {
+      background-color: $azul_encendido !important;
     }
   }
 }
 .nav {
+  font-family: 'Roboto';
   background-color: $amarillo !important;
 }
 .info {
+  font-family: 'Roboto';
   background-color: $blanco !important;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> formulario-registro
