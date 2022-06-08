@@ -1,0 +1,28 @@
+<ng-container *ngIf="usuario">
+  <nav id="sidebarMenu">
+    <div class="position-sticky pt-4">
+      <ul class="nav nav-pills flex-column">
+        <li *ngIf="usuario.rol_activo == 2">
+          <a class="nav-link link-white" routerLinkActive="active" routerLink="admin/crud-admin"
+            aria-current="page">Gestionar usuarios
+          </a>
+        </li>
+        <li *ngIf="usuario.rol_activo == 2">
+          <a class="nav-link link-white" routerLinkActive="active" routerLink="admin/registro-usuarios"
+            aria-current="page">Registrar usuario
+          </a>
+        </li>
+        <li *ngIf="usuario.rol_activo == 1">
+          <a class="nav-link link-white" routerLinkActive="active" routerLink="user/dar-like"
+            aria-current="page">Ver afines
+          </a>
+        </li>
+        <li *ngIf="usuario.rol_activo == 1">
+          <a class="nav-link link-white" routerLinkActive="active" routerLink="user/ver-amigos"
+            aria-current="page">Ver amigos
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</ng-container>

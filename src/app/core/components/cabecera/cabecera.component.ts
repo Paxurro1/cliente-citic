@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
   public logo: string;
-  constructor() {
+  constructor(
+  ) {
     this.logo="./assets/logo.png";
   }
 

@@ -1,0 +1,46 @@
+<div *ngIf="numeroAfin < afines!.length" class="row">
+  <div class="col-12">
+    <h1 class="modal-title h3">Estas son las personas que creemos te podrían interesar</h1>
+  </div>
+  <div class="col-12 mt-3">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="h4 col-12">{{afin!.nombre}}</h2>
+      </div>
+      <div class="col-6">
+        <img class="col-12" width="400" height="400" src={{foto}} alt="Foto de perfil">
+        <p class="col-12">{{afin!.descripcion}}</p>
+      </div>
+      <div class="col-6">
+        <div class="col-12">Su fecha de nacimiento es {{afin!.f_nac}}.</div>
+        <div class="col-12">Reside en {{afin!.ciudad}}.</div>
+        <div class="col-12">Busca una relación {{afin!.tipo_relacion}}.</div>
+        <div class="col-12" *ngIf="afin!.tieneHijos == 0">Tiene hijos</div>
+        <div class="col-12" *ngIf="afin!.tieneHijos == 1">No tiene hijos</div>
+        <div class="col-12" *ngIf="afin!.quiereHijos == 0">Quiere hijos</div>
+        <div class="col-12" *ngIf="afin!.quiereHijos == 1">No quiere hijos</div>
+        <div class="col-12" *ngIf="afin!.id_genero == 1">Es hombre</div>
+        <div class="col-12" *ngIf="afin!.id_genero == 2">Es mujer</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 justify-content-center alig-items-center d-flex flex-row">
+        <button (click)="like(afin!.email)" class="btn btn-success px-2 py-1 me-2 btn-lg" type="submit"
+          aria-label="eliminar">
+          Me gusta
+        </button>
+      </div>
+      <div class="col-6 justify-content-center alig-items-center d-flex flex-row">
+        <button (click)="dislike(afin!.email)" class="btn btn-danger px-2 py-1 me-2 btn-lg" type="submit"
+          aria-label="eliminar">
+          No me gusta
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="numeroAfin == afines!.length" class="row">
+  <div class="col-12">
+    <h1 class="modal-title h3">Ya has visto todas las personas que te podrían interesar</h1>
+  </div>
+</div>

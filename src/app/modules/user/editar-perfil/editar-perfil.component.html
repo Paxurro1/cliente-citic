@@ -1,0 +1,162 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="modal-title">Edición de perfil</h1>
+  </div>
+  <div class="col-12">
+    <form [formGroup]="editar" (ngSubmit)="onSubmit()" class="row">
+      <div class="mb-3 col-6">
+        <label for="email" class="form-label"><b>Email</b></label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+        <div *ngIf="submitted && formulario['email'].errors">
+          <div *ngIf="formulario['email'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El email no puede estar vacío.
+          </div>
+          <div *ngIf="formulario['email'].errors['email']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El email introducido no tiene un
+            formato válido.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="nombre" class="form-label"><b>Nombre</b></label>
+        <input type="text" formControlName="nombre" class="form-control" id="nombre">
+        <div *ngIf="submitted && formulario['nombre'].errors">
+          <div *ngIf="formulario['nombre'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre no puede estar vacío.
+          </div>
+          <div *ngIf="formulario['nombre'].errors['minlength']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre tiene que tener al menos
+            3 carácteres.</div>
+          <div *ngIf="formulario['nombre'].errors['maxlength']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre puede tener como máximo
+            20 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="date" class="form-label"><b>Fecha de nacimiento</b></label>
+        <input type="date" formControlName="date" class="form-control" id="date">
+        <div *ngIf="submitted && formulario['date'].errors">
+          <div *ngIf="formulario['date'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Tienes que introducir una fecha.</div>
+          <div *ngIf="formulario['date'].errors['esMenor']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">No puedes ser menor de edad.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="ciudad" class="form-label"><b>Ciudad</b></label>
+        <input type="text" formControlName="ciudad" class="form-control" id="ciudad">
+        <div *ngIf="submitted && formulario['ciudad'].errors">
+          <div *ngIf="formulario['ciudad'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La ciudad no puede estar vacía.</div>
+          <div *ngIf="formulario['ciudad'].errors['minlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La ciudad tiene que tener al menos 3 carácteres.</div>
+          <div *ngIf="formulario['ciudad'].errors['maxlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La ciudad puede tener como máximo 30 carácteres.</div>
+        </div>
+      </div>
+      <label for="desc" class="form-label"><b>Descripción</b></label>
+      <div class="mb-3 col-6">
+        <textarea id="desc" formControlName="desc" cols="40" rows="5"></textarea>
+        <div *ngIf="submitted && formulario['desc'].errors">
+          <div *ngIf="formulario['desc'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La descripción no puede estar vacía.</div>
+          <div *ngIf="formulario['desc'].errors['minlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La descripción tiene que tener al menos 10 carácteres.</div>
+          <div *ngIf="formulario['desc'].errors['maxlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La descripción puede tener como máximo 200 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">¿Que tipo de relación quieres?</label>
+        <fieldset class="col pb-2 d-flex justify-content-between">
+          <div class="col-12 col-lg-4">
+            <div class="form-check" id="esporadica">
+              <input class="form-check-input" type="radio" value="Esporádica" id="esporadica" name="relacion" (change)="esporadicaChange($event)">
+              <label class="form-check-label" for="esporadica">
+                Esporádica
+              </label>
+            </div>
+            <div class="form-check" id="seria">
+              <input class="form-check-input" type="radio" value="Seria" id="seria" name="relacion" (change)="seriaChange($event)">
+              <label class="form-check-label" for="seria">
+                Seria
+              </label>
+            </div>
+            <div class="form-check" id="indiferente">
+              <input class="form-check-input" type="radio" value="Indiferente" id="indiferente" name="relacion" (change)="indiferenteChange($event)">
+              <label class="form-check-label" for="indiferente">
+                Indiferente
+              </label>
+            </div>
+          </div>
+          <div *ngIf="submitted && formulario['tipo_relacion'].errors">
+            <div *ngIf="formulario['tipo_relacion'].errors['required']"
+              class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Elige una opción.
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">¿Tienes hijos?</label>
+        <fieldset class="col pb-2 d-flex justify-content-between">
+          <div class="col-12 col-lg-4">
+            <div class="form-check" id="tiene">
+              <input class="form-check-input" type="radio" value="0" id="tiene" name="tiene" (change)="tieneChange($event)">
+              <label class="form-check-label" for="tiene">
+                Si
+              </label>
+            </div>
+            <div class="form-check" id="noTiene">
+              <input class="form-check-input" type="radio" value="1" id="noTiene" name="tiene" (change)="noTieneChange($event)">
+              <label class="form-check-label" for="noTiene">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">¿Quieres hijos?</label>
+        <fieldset class="col pb-2 d-flex justify-content-between">
+          <div class="col-12 col-lg-4">
+            <div class="form-check" id="quiere">
+              <input class="form-check-input" type="radio" value="0" id="quiere" name="quiere" (change)="quiereChange($event)">
+              <label class="form-check-label" for="quiere">
+                Si
+              </label>
+            </div>
+            <div class="form-check" id="noQuiere">
+              <input class="form-check-input" type="radio" value="1" id="noQuiere" name="quiere" (change)="noQuiereChange($event)">
+              <label class="form-check-label" for="noQuiere">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">¿Eres hombre o mujer?</label>
+        <fieldset class="col pb-2 d-flex justify-content-between">
+          <div class="col-12 col-lg-4">
+            <div class="form-check" id="hombre">
+              <input class="form-check-input" type="radio" value="1" id="hombre" name="sexo" (change)="hombreChange($event)">
+              <label class="form-check-label" for="hombre">
+                Hombre
+              </label>
+            </div>
+            <div class="form-check" id="mujer">
+              <input class="form-check-input" type="radio" value="2" id="mujer" name="sexo" (change)="mujerChange($event)">
+              <label class="form-check-label" for="mujer">
+                Mujer
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="btn btn-primary" value="editar">Editar perfil</button>
+    </form>
+  </div>
+  <div class="col-3 text-center">
+    <input type="button" class="btn btn-warning m-1" value="Cambiar contraseña" (click)='cambiarPass()'>
+  </div>
+  <div class="col-3 text-center">
+    <input type="button" class="btn btn-success m-1" value="Cambiar rol" (click)='elegirRol()'>
+  </div>
+  <div class="col-3 text-center">
+    <input type="button" class="btn btn-success m-1" value="Cambiar preferencias" (click)='cambiarPreferencias()'>
+  </div>
+  <div class="col-3 text-center">
+    <input type="button" class="btn btn-danger m-1" value="Cerrar sesión" (click)='salir()'>
+  </div>
+</div>

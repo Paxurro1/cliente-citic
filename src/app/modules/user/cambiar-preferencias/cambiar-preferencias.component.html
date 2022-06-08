@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="modal-title">Edición de preferencias</h1>
+  </div>
+  <div class="col-12">
+    <form [formGroup]="editar" (ngSubmit)="onSubmit()" class="row">
+      <div class="mb-3 col-6">
+        <label for="deporte" class="form-label"><b>¿Cuánto te gusta el deporte?</b></label>
+        <input formControlName="deporte" type="range" id="deporte" class="form-control">
+        <div *ngIf="submitted && formulario['deporte'].errors">
+          <div *ngIf="formulario['deporte'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El deporte no puede estar vacío.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="arte" class="form-label"><b>¿Cuánto te gusta el arte?</b></label>
+        <input formControlName="arte" type="range" id="arte" class="form-control">
+        <div *ngIf="submitted && formulario['arte'].errors">
+          <div *ngIf="formulario['arte'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El arte no puede estar vacío.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="politica" class="form-label"><b>¿Cuánto te gusta la política?</b></label>
+        <input formControlName="politica" type="range" id="arte" class="form-control">
+        <div *ngIf="submitted && formulario['politica'].errors">
+          <div *ngIf="formulario['politica'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La política no puede estar vacío.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="musica" class="form-label"><b>¿Cuánto te gusta la música?</b></label>
+        <input formControlName="musica" type="range" id="musica" class="form-control">
+        <div *ngIf="submitted && formulario['musica'].errors">
+          <div *ngIf="formulario['musica'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La música no puede estar vacío.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="viajar" class="form-label"><b>¿Cuánto te gusta viajar?</b></label>
+        <input formControlName="viajar" type="range" id="viajar" class="form-control">
+        <div *ngIf="submitted && formulario['viajar'].errors">
+          <div *ngIf="formulario['viajar'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Viajar no puede estar vacío.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">¿Te gustan los hombre, las mujeres o ambos?</label>
+        <div class="row pb-2 d-flex" id="sexualidad">
+          <label for="cbox2"><input type="checkbox" value="1" (change)="onCheckboxChange($event)"> Hombres</label>
+          <label for="cbox1"><input type="checkbox" value="2" (change)="onCheckboxChange($event)"> Mujeres</label>
+        </div>
+        <div *ngIf="submitted && formulario['checkArray'].errors">
+          <div *ngIf="formulario['checkArray'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Tiene que tener al menos un rol.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" value="editar">Editar preferencias</button>
+    </form>
+  </div>
+</div>

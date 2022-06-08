@@ -2,16 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CiticRoutingModule } from './citic-routing.module';
-import { CabeceraComponent } from './components/cabecera/cabecera.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { FormulariologingComponent } from './components/formulariologing/formulariologing.component';
 import { FormularioregistroComponent } from './components/formularioregistro/formularioregistro.component';
 
 
 @NgModule({
   declarations: [
-    CabeceraComponent,
-    FooterComponent,
     FormulariologingComponent,
     FormularioregistroComponent
   ],
@@ -20,8 +16,6 @@ import { FormularioregistroComponent } from './components/formularioregistro/for
     CiticRoutingModule,
   ],
   exports: [
-    CabeceraComponent,
-    FooterComponent,
     FormulariologingComponent,
     FormularioregistroComponent
   ]

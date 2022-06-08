@@ -1,0 +1,274 @@
+<div class="row">
+  <div class="col-12 col-sm-6 formulario">
+    <form [formGroup]="registro" (ngSubmit)="onSubmit()" class="row">
+      <div class="mb-3 col-12">
+        <label for="email" class="form-label">Introduce tu email</label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+        <div *ngIf="submitted && formulario['email'].errors">
+          <div *ngIf="formulario['email'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El email no puede estar vacío.</div>
+          <div *ngIf="formulario['email'].errors['email']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El email introducido no tiene un formato válido.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <label for="nombre" class="form-label">Introduce tu nombre</label>
+        <input type="text" formControlName="nombre" class="form-control" id="nombre">
+        <div *ngIf="submitted && formulario['nombre'].errors">
+          <div *ngIf="formulario['nombre'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre no puede estar vacío.</div>
+          <div *ngIf="formulario['nombre'].errors['minlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre tiene que tener al menos 3 carácteres.</div>
+          <div *ngIf="formulario['nombre'].errors['maxlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre puede tener como máximo 20 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <label for="pass1" class="form-label">Contraseña</label>
+        <input type="password" formControlName="pass1" class="form-control" id="pass1" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})">
+        <div *ngIf="submitted && formulario['pass1'].errors">
+          <div *ngIf="formulario['pass1'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La contraseña no puede estar vacía.</div>
+          <div *ngIf="formulario['pass1'].errors['minlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La contraseña debe tener mínimo 8 carácteres.</div>
+          <div *ngIf="formulario['pass1'].errors['pattern']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La contraseña debe tener una minúscula, una mayúscula y un número.</div>
+          <div *ngIf="formulario['pass1'].errors['maxlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La contraseña puede tener como máximo 30 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <label for="pass2" class="form-label">Repite la contraseña</label>
+        <input type="password" formControlName="pass2" class="form-control" id="pass2">
+        <div *ngIf="submitted && formulario['pass2'].errors">
+          <div *ngIf="formulario['pass2'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La contraseña no puede estar vacía.</div>
+          <div *ngIf="formulario['pass2'].errors['NoPassswordMatch']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Las contraseñas no coinciden.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <label for="edad" class="form-label">Introduce tu fecha de nacimiento</label>
+        <input type="date" formControlName="date" class="form-control" id="edad">
+        <div *ngIf="submitted && formulario['date'].errors">
+          <div *ngIf="formulario['date'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Tienes que introducir una fecha.</div>
+          <div *ngIf="formulario['date'].errors['esMenor']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">No puedes ser menor de edad.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <label for="ciudad" class="form-label">Introduce tu ciudad</label>
+        <input type="text" formControlName="ciudad" class="form-control" id="ciudad">
+        <div *ngIf="submitted && formulario['ciudad'].errors">
+          <div *ngIf="formulario['ciudad'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La ciudad no puede estar vacía.</div>
+          <div *ngIf="formulario['ciudad'].errors['minlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La ciudad tiene que tener al menos 3 carácteres.</div>
+          <div *ngIf="formulario['ciudad'].errors['maxlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La ciudad puede tener como máximo 30 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <label for="descripcion" class="form-label">Introduce una descripción</label>
+      </div>
+      <div class="mb-3 col-12">
+        <textarea id="descripcion" formControlName="desc" cols="30" rows="10"></textarea>
+        <div *ngIf="submitted && formulario['desc'].errors">
+          <div *ngIf="formulario['desc'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La descripción no puede estar vacía.</div>
+          <div *ngIf="formulario['desc'].errors['minlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La descripción tiene que tener al menos 10 carácteres.</div>
+          <div *ngIf="formulario['desc'].errors['maxlength']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">La descripción puede tener como máximo 200 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <fieldset class="row d-flex align-items-center">
+          <div class="col-12 col-lg-4 d-lg-flex justify-content-end">
+            <label class="form-label fw-bold m-0">¿Eres hombre o mujer?</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexo" type="radio" value="1"
+                id="hombre" checked>
+              <label class="form-check-label" for="hombre">
+                Hombre
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexo" type="radio" value="2"
+                id="mujer">
+              <label class="form-check-label" for="mujer">
+                Mujer
+              </label>
+            </div>
+            <div *ngIf="submitted && formulario['sexo'].errors">
+              <div *ngIf="formulario['sexo'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Selecciona una opción.</div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-12">
+        <fieldset class="row d-flex align-items-center">
+          <div class="col-12 col-lg-4 d-lg-flex justify-content-end">
+            <label class="form-label fw-bold m-0">¿Qué tipo de relación quieres?</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="form-check">
+              <input class="form-check-input" formControlName="tipoRelacion" type="radio" value="Seria"
+                id="esporadica" checked>
+              <label class="form-check-label" for="esporadica">
+                Seria
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="tipoRelacion" type="radio" value="Esporádica"
+                id="estable">
+              <label class="form-check-label" for="estable">
+                Esporádica
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="tipoRelacion" type="radio" value="Indiferente"
+                id="indiferente">
+              <label class="form-check-label" for="indiferente">
+                Indiferente
+              </label>
+            </div>
+            <div *ngIf="submitted && formulario['tipoRelacion'].errors">
+              <div *ngIf="formulario['tipoRelacion'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Selecciona una opción.</div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-12">
+        <fieldset class="row d-flex align-items-center">
+          <div class="col-12 col-lg-4 d-lg-flex justify-content-end">
+            <label class="form-label fw-bold m-0">¿Tienes hijos?</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="form-check">
+              <input class="form-check-input" formControlName="tieneHijos" type="radio" value="0"
+                id="sitiene" checked>
+              <label class="form-check-label" for="sitiene">
+                Sí
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="tieneHijos" type="radio" value="1"
+                id="notiene">
+              <label class="form-check-label" for="notiene">
+                No
+              </label>
+            </div>
+            <div *ngIf="submitted && formulario['tieneHijos'].errors">
+              <div *ngIf="formulario['tieneHijos'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Selecciona una opción.</div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-12">
+        <fieldset class="row d-flex align-items-center">
+          <div class="col-12 col-lg-4 d-lg-flex justify-content-end">
+            <label class="form-label fw-bold m-0">¿Quieres hijos?</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="form-check">
+              <input class="form-check-input" formControlName="quiereHijos" type="radio" value="0"
+                id="siquiere" checked>
+              <label class="form-check-label" for="siquiere">
+                Sí
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="quiereHijos" type="radio" value="1"
+                id="noquiere">
+              <label class="form-check-label" for="noquiere">
+                No
+              </label>
+            </div>
+            <div *ngIf="submitted && formulario['quiereHijos'].errors">
+              <div *ngIf="formulario['quiereHijos'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Selecciona una opción.</div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-12">
+        <div class="row">
+          <label for="deporte" class="form-label col-12">¿Cuánto te gusta el deporte?</label>
+          <input class="col-6" formControlName="deporte" type="range" id="deporte">
+          <div *ngIf="submitted && formulario['deporte'].errors">
+            <div *ngIf="formulario['deporte'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Introduce un rango</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <div class="row">
+          <label for="arte" class="form-label col-12">¿Cuánto te gusta el arte?</label>
+          <input class="col-6" formControlName="arte" type="range" id="arte">
+          <div *ngIf="submitted && formulario['arte'].errors">
+            <div *ngIf="formulario['arte'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Introduce un rango</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <div class="row">
+          <label for="politica" class="form-label col-12">¿Cuánto te gusta la política?</label>
+          <input class="col-6" formControlName="politica" type="range" id="politica">
+          <div *ngIf="submitted && formulario['politica'].errors">
+            <div *ngIf="formulario['politica'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Introduce un rango</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <div class="row">
+          <label for="musica" class="form-label col-12">¿Cuánto te gusta la música?</label>
+          <input class="col-6" formControlName="musica" type="range" id="musica">
+          <div *ngIf="submitted && formulario['musica'].errors">
+            <div *ngIf="formulario['musica'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Introduce un rango</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <div class="row">
+          <label for="viajar" class="form-label col-12">¿Cuánto te gusta viajar?</label>
+          <input class="col-6" formControlName="viajar" type="range" id="viajar">
+          <div *ngIf="submitted && formulario['viajar'].errors">
+            <div *ngIf="formulario['viajar'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Introduce un rango</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 col-12">
+        <fieldset class="row d-flex align-items-center">
+          <div class="col-12 col-lg-4 d-lg-flex justify-content-end">
+            <label class="form-label fw-bold m-0">¿Qué prefieres?</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexualidad" type="radio" value="1"
+                id="mujer" checked>
+              <label class="form-check-label" for="mujer">
+                Hombre
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexualidad" type="radio" value="2"
+                id="hombre">
+              <label class="form-check-label" for="hombre">
+                Mujeres
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="sexualidad" type="radio" value="3"
+                id="ambos">
+              <label class="form-check-label" for="ambos">
+                Ambos
+              </label>
+            </div>
+            <div *ngIf="submitted && formulario['sexualidad'].errors">
+              <div *ngIf="formulario['sexualidad'].errors['required']" class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Selecciona una opción.</div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="btn btn-primary" value="Registrarme">Registrarme</button>
+    </form>
+  </div>
+  <div class="col-12 col-sm-6 info">
+    Lorem fistrum caballo blanco caballo negroorl de la pradera benemeritaar.
+    Benemeritaar me cago en tus muelas torpedo a gramenawer por la gloria de mi
+    madre se calle ustée me cago en tus muelas ahorarr tiene musho peligro condemor fistro.
+    Llevame al sircoo a wan llevame al sircoo pupita diodenoo papaar papaar diodenoo te voy a borrar el cerito.
+    Pupita jarl fistro llevame al sircoo ese hombree al ataquerl no te digo trigo por no llamarte Rodrigor.
+    Condemor te voy a borrar el cerito se calle ustée la caidita ese que llega la caidita pupita la caidita de la
+    pradera a gramenawer
+    llevame al sircoo. Condemor a gramenawer por la gloria de mi madre a wan ese que llega por la gloria de mi madre me
+    cago en tus
+    muelas. Te voy a borrar el cerito pecador qué dise usteer no puedor a gramenawer sexuarl jarl se calle ustée.
+    Va usté muy cargadoo quietooor se calle ustée ese
+    hombree condemor al ataquerl ese que llega ese que llega. Qué dise usteer ese hombree ahorarr papaar papaar pecador
+    condemor diodenoo.
+  </div>
+</div>

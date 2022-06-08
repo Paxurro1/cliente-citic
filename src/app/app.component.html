@@ -1,17 +1,24 @@
-<div class="container-fluid">
+<ng-container *ngIf="usuario">
   <app-cabecera></app-cabecera>
-</div>
-<div class="container">
-  <app-formulariologing></app-formulariologing>
-</div>
-<div class="container-fluid">
-  <app-footer></app-footer>
-  <app-cabecera></app-cabecera>
-</div>
-<div class="container">
-  <app-formularioregistro></app-formularioregistro>
-</div>
-<div class="container-fluid">
-  <app-footer></app-footer>
-</div>
-<router-outlet></router-outlet>
+
+  <div class="container-fluid flex-grow-1 d-flex h-100">
+    <div class="row flex-fill">
+      <app-navbar class="col-md-3 col-lg-2 d-md-block cabecera collapse user-select-none h-100"> </app-navbar>
+      <div class="col-md-9 ms-sm-auto col-lg-10 p-3 contenido bg-light">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</ng-container>
+
+<ng-container *ngIf="!usuario">
+  <div class="container-fluid h-100 align-items-center">
+    <div class="row flex-fill">
+      <div class="col ms-sm-auto p-3">
+        <router-outlet class="contenido bg-light"></router-outlet>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</ng-container>

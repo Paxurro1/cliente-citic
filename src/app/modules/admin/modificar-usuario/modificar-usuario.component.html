@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="modal-header">
+    <h1 class="modal-title">Edición de usuarios</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+  <div class="col-12 modal-body">
+    <form [formGroup]="datosUsuario" novalidate="" (ngSubmit)="onSubmit()" class="row">
+      <div class="mb-3 col-6">
+        <label for="email" class="form-label"><b>Email</b></label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+        <div *ngIf="submitted && formulario['email'].errors">
+          <div *ngIf="formulario['email'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El email no puede estar vacío.
+          </div>
+          <div *ngIf="formulario['email'].errors['email']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El email introducido no tiene un
+            formato válido.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label for="nombre" class="form-label"><b>Nombre</b></label>
+        <input type="text" formControlName="nombre" class="form-control" id="nombre">
+        <div *ngIf="submitted && formulario['nombre'].errors">
+          <div *ngIf="formulario['nombre'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre no puede estar vacío.
+          </div>
+          <div *ngIf="formulario['nombre'].errors['minlength']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre tiene que tener al menos
+            3 carácteres.</div>
+          <div *ngIf="formulario['nombre'].errors['maxlength']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El nombre puede tener como máximo
+            20 carácteres.</div>
+        </div>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">¿Usuario activado?</label>
+        <fieldset class="col pb-2 d-flex justify-content-between">
+          <div class="col-12 col-lg-4">
+            <div class="form-check" id="activoUsuario">
+              <input class="form-check-input" type="radio" value="1" id="activo" name="activo" (change)="onActivoChange($event)">
+              <label class="form-check-label" for="siquiere">
+                Sí
+              </label>
+            </div>
+            <div class="form-check" id="inactivoUsuario">
+              <input class="form-check-input" type="radio" value="0" id="activo" name="activo" (change)="onActivoChange($event)">
+              <label class="form-check-label" for="noquiere">
+                No
+              </label>
+            </div>
+          </div>
+          <div *ngIf="submitted && formulario['activo'].errors">
+            <div *ngIf="formulario['activo'].errors['required']"
+              class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Elige una opción.
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="mb-3 col-6">
+        <label class="form-label fw-bold m-0">Roles</label>
+        <div class="row pb-2 d-flex" id="rolesUsuario">
+          <label for="cbox2"><input type="checkbox" value="2" (change)="onCheckboxChange($event)"> Administrador</label>
+          <label for="cbox1"><input type="checkbox" value="1" (change)="onCheckboxChange($event)"> Usuario</label>
+        </div>
+        <div *ngIf="submitted && formulario['checkArray'].errors">
+          <div *ngIf="formulario['checkArray'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">Tiene que tener al menos un rol.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" value="Registro">Modificar usuario</button>
+    </form>
+  </div>
+</div>
