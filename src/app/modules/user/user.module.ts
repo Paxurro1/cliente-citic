@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DarLikeComponent } from './dar-like/dar-like.component';
 import { VerAmigosComponent } from './ver-amigos/ver-amigos.component';
 import { DataTablesModule } from 'angular-datatables';
+import { VerMensajesComponent } from './ver-mensajes/ver-mensajes.component';
+import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { DataTablesModule } from 'angular-datatables';
     ElegirRolComponent,
     CambiarPreferenciasComponent,
     DarLikeComponent,
-    VerAmigosComponent
+    VerAmigosComponent,
+    VerMensajesComponent,
+    EnviarMensajeComponent
   ],
   imports: [
     CommonModule,

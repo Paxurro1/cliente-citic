@@ -17,7 +17,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Genero</th>
                     <th scope="col">Conectado</th>
-                    <th scope="col">Borrar</th>
+                    <th scope="col">Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,6 +34,10 @@
                       <p *ngIf="a.conectado == 1">Conectado</p>
                     </td>
                     <td scope="col">
+                      <button (click)="verMensajes(a.email)"
+                        class="btn btn-outline-primary px-2 py-1 me-2" type="submit" aria-label="modificar">
+                        Ver mensajes
+                      </button>
                       <button (click)="borrarAmigo(a.email)"
                         class="btn btn-outline-danger px-2 py-1 me-2" type="submit" aria-label="modificar">
                         Borrar

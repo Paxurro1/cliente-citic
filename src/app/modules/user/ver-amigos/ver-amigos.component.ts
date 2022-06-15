@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { Amigos } from 'src/app/models/amigos';
+import { EmailStorageEmailService } from 'src/app/services/email.storageEmail.service';
 
 @Component({
   selector: 'app-ver-amigos',
@@ -28,6 +29,7 @@ export class VerAmigosComponent implements OnInit {
     private toastr: ToastrService,
     private amigosService: AmigosService,
     private storageUser: LoginStorageUserService,
+    private storageEmail: EmailStorageEmailService,
   ) {
     this.usuario = storageUser.getUser();
   }
@@ -69,7 +71,7 @@ export class VerAmigosComponent implements OnInit {
     });
   }
 
-  borrarAmigo(email: string){
+  borrarAmigo(email: string) {
     console.log(email)
     this.amigosService.borrarAmigo(this.usuario!.email, email).subscribe({
       next: (res) => {
@@ -81,6 +83,11 @@ export class VerAmigosComponent implements OnInit {
         this.toastr.error('El amigo no ha podido ser eliminado.', 'Error');
       }
     })
+  }
+
+  verMensajes(email: string) {
+    this.storageEmail.setEmail(email);
+    this.router.navigate(['user/ver-mensajes']);
   }
 
 }

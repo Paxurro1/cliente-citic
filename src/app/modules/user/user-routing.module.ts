@@ -6,6 +6,8 @@ import { ElegirRolComponent } from './elegir-rol/elegir-rol.component'
 import { CambiarPreferenciasComponent } from './cambiar-preferencias/cambiar-preferencias.component'
 import { DarLikeComponent } from './dar-like/dar-like.component'
 import { VerAmigosComponent } from './ver-amigos/ver-amigos.component'
+import { VerMensajesComponent } from './ver-mensajes/ver-mensajes.component'
+import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component'
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path:'ver-amigos',
     component: VerAmigosComponent
+  },
+  {
+    path:'ver-mensajes',
+    component: VerMensajesComponent
+  },
+  {
+    path:'enviar-mensaje',
+    component: EnviarMensajeComponent
   },
 ];
 

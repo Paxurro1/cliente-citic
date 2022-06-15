@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class="modal-title">Enviar mensaje</h1>
+  </div>
+  <div class="col-12">
+    <form [formGroup]="mensaje" (ngSubmit)="onSubmit()" class="row">
+      <div class="mb-3 col-6">
+        <label for="texto" class="form-label"><b>Texto</b></label>
+        <textarea formControlName="texto" class="form-control" id="texto" cols="30" rows="10"></textarea>
+        <div *ngIf="submitted && formulario['texto'].errors">
+          <div *ngIf="formulario['texto'].errors['required']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El texto no puede estar
+            vacío.</div>
+          <div *ngIf="formulario['texto'].errors['minlength']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El texto debe tener mínimo 5
+            carácteres.</div>
+          <div *ngIf="formulario['texto'].errors['maxlength']"
+            class="h6 text-danger bg-white rounded border border-2 border-danger p-2">El texto puede tener como
+            máximo 200 carácteres.</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" value="editar">Enviar mensaje</button>
+    </form>
+  </div>
+</div>

@@ -69,7 +69,7 @@ export class CambiarPassComponent implements OnInit {
         this.toastr.error('Error al editar la contraseña.', 'Error');
       }
     })
-    // this.onReset();
+    this.onReset();
   }
 
   get formulario() {

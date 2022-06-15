@@ -1,0 +1,40 @@
+<div *ngIf="mensajes.length > 0" class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-8 d-flex justify-content-between pb-2">
+        <h1 class="h3">Mensajes enviados por tu amigo</h1>
+      </div>
+      <div class="col-4 d-flex justify-content-end pb-2">
+        <button (click)="enviarMensaje()" class="btn btn-info px-2 py-1 me-2" type="submit" aria-label="eliminar">
+          Enviar mensaje
+        </button>
+      </div>
+    </div>
+    <div class="col-12 mt-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="row" *ngFor="let m of mensajes">
+            <div class="col-12" scope="col">
+              De {{m.email_origen}}
+              Para {{m.email_destino}}
+              <p>Contenido</p>
+              <textarea readonly cols="30" rows="10">{{m.texto}}</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="mensajes.length <= 0" class="row">
+  <div class="row">
+    <div class="col-8 d-flex justify-content-between pb-2">
+      <h1 class="h3">Este usuario aún no te ha enviado ningún mensaje</h1>
+    </div>
+    <div class="col-4 d-flex justify-content-end pb-2">
+      <button (click)="enviarMensaje()" class="btn btn-info px-2 py-1 me-2" type="submit" aria-label="eliminar">
+        Enviar mensaje
+      </button>
+    </div>
+  </div>
+</div>
